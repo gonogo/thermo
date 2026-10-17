@@ -1,3 +1,4 @@
 *.jpg
 /public/images/webcam.jpg
 *.swp
+node_modules/
