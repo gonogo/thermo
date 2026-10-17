@@ -8,9 +8,18 @@ var options = {
 	pythonPath: path.join(__dirname, 'python-venv/bin/python'),
 	scriptPath: __dirname
 };
-var pyshell = new PythonShell('simpletest.py', options);
-pyshell.on('message', function (message) {
-	module.exports.temperature = message;
-});
 
+function start() {
+	var pyshell = new PythonShell('simpletest.py', options);
+	pyshell.on('message', function (message) {
+		module.exports.temperature = message;
+	});
+	pyshell.on('error', function (err) {
+		console.error('Temperature script failed: ' + err.message);
+	});
+	pyshell.on('close', function () {
+		setTimeout(start, 5000);
+	});
+}
 
+start();
