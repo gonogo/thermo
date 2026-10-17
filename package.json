@@ -14,6 +14,7 @@
     "morgan": "~1.5.1",
     "python-shell": "*",
     "serve-favicon": "~2.2.0",
-    "socket.io": "^1.3.6"
+    "socket.io": "^1.3.6",
+    "temperature": "git+https://github.com/gonogo/temperature.git#v1.0.0"
   }
 }
